@@ -1,0 +1,15 @@
+name: Output Event details when issues are opened
+on:
+  issues:
+    types: [opened]
+jobs:
+  output-issue-details:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output issue details
+        run: |
+          echo "Issue Title: ${{ github.event.issue.title }}"
+          echo "Issue Body: ${{ github.event.issue.body }}"
+          echo "Issue URL: ${{ github.event.issue.html_url }}"
+          echo "Issue Created At: ${{ github.event.issue.created_at }}"
+          echo "Issue User: ${{ github.event.issue.user.login }}"
